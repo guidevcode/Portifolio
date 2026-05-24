@@ -1,319 +1,435 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>Guilherme Silva | Portfolio</title>
-  <meta name="title" content="Guilherme | Portfolio" />
+  <meta name="description" content="Portfólio de Guilherme Silva — Desenvolvedor Back-End Java especializado em Spring Boot, APIs REST, Microsserviços, Docker e Kafka." />
+  <meta name="keywords" content="Guilherme Silva, Back-End, Java, Spring Boot, REST API, Microsserviços, Docker, Kafka, AWS, desenvolvedor" />
+  <meta property="og:title" content="Guilherme Silva | Back-End Developer" />
+  <meta property="og:description" content="Desenvolvedor Back-End Java especializado em Spring Boot, APIs REST, Microsserviços e arquitetura cloud-native." />
+  <meta property="og:type" content="website" />
+  <title>Guilherme Silva | Back-End Developer</title>
   <link rel="icon" type="image/x-icon" href="imagens/Icon.jpg" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 </head>
 
-
-
 <body>
-  <header id="hero">
-    <nav class="navbar">
-      <div class="container">
-        <h1 id="logo">
-          <a href="/">
-            <p>
-              &lt;Guilherme Silva/&gt;
-            </p>
-          </a>
-        </h1>
-        <ul class="nav-menu">
-          <li><a class="nav-link" href="#sobre">SOBRE</a></li>
-          <li><a class="nav-link" href="#habilidades">HABILIDADES</a></li>
-          <li><a class="nav-link" href="#projects">PROJETOS</a></li>
-          <li><a class="nav-link" href="#contact">CONTATO</a></li>
-          <div class="theme-switch">
-            <input type="checkbox" id="switch" />
-            <label class="toggle-icons" for="switch">
-              <img class="sun" src="imagens/LUAA.png" />
-              <img class="sun" src="imagens/sun.png" />
-            </label>
-          </div>
-          <div class="language-selector">
-            <select id="language" onchange="changeLanguage(this);" onfocus="showFullNames(this);"
-              onblur="resetNames(this);">
-              <option value="/" data-full="PT-BR" selected>PT-BR</option>
-            </select>
-          </div>
 
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+  <!-- ── Navbar ─────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+    <div class="container navbar__inner">
+      <a class="navbar__logo" href="index.html" aria-label="Guilherme Silva — home">
+        <span class="logo-text">&lt;GS /&gt;</span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a class="nav-link" href="#sobre" data-i18n="nav-about">SOBRE</a></li>
+        <li><a class="nav-link" href="#habilidades" data-i18n="nav-skills">HABILIDADES</a></li>
+        <li><a class="nav-link" href="#projects" data-i18n="nav-projects">PROJETOS</a></li>
+        <li><a class="nav-link" href="#contact" data-i18n="nav-contact">CONTATO</a></li>
+      </ul>
+
+      <div class="navbar__controls">
+        <div class="theme-switch">
+          <input type="checkbox" id="switch" />
+          <label class="toggle-icons" for="switch" aria-label="Alternar tema">
+            <img class="moon" src="imagens/LUAA.png" alt="" />
+            <img class="sun" src="imagens/sun.png" alt="" />
+          </label>
+        </div>
+        <div class="language-selector">
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma">
+              <span id="langLabel">PT-BR</span>
+            </button>
+            <ul class="lang-options" role="listbox" id="langOptions">
+              <li class="lang-option active" role="option" data-value="pt-BR">PT-BR</li>
+              <li class="lang-option" role="option" data-value="en">EN</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </nav>
+
+      <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────────── -->
+  <header id="home" class="hero">
+    <div class="hero__content">
+      <img class="hero__avatar" src="imagens/eu.jpeg" alt="Foto de Guilherme Silva" />
+      <p class="hero__label">// Back-End Developer</p>
+      <h1 class="hero__name">
+        Guilherme <span class="hero__name-accent">Silva</span>
+      </h1>
+      <ul class="hero__stack">
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>Microsserviços</li>
+        <li>Docker</li>
+        <li>Kafka</li>
+        <li>AWS</li>
+      </ul>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary" data-i18n="hero-cta-projects">Ver Projetos</a>
+        <a href="curriculo/Curriculo.pdf" download class="btn btn--outline" data-i18n="hero-cta-cv">Baixar CV</a>
+      </div>
+      <div class="hero__social">
+        <a href="https://github.com/guidevcode" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32" fill="currentColor" class="icon">
+            <path d="M16 0.4C7.16 0.4 0 7.56 0 16.4c0 7.07 4.58 13.07 10.94 15.18.8.15 1.09-.35 1.09-.77v-2.7c-4.45.96-5.39-2.15-5.39-2.15-.73-1.84-1.78-2.33-1.78-2.33-1.45-.99.11-.97.11-.97 1.6.11 2.44 1.64 2.44 1.64 1.43 2.45 3.74 1.74 4.66 1.33.14-1.03.56-1.74 1.01-2.14-3.55-.4-7.29-1.78-7.29-7.91 0-1.75.62-3.18 1.64-4.3-.16-.4-.71-2.03.16-4.23 0 0 1.34-.43 4.4 1.64a15.2 15.2 0 0 1 8 0c3.06-2.07 4.4-1.64 4.4-1.64.87 2.2.32 3.83.16 4.23 1.02 1.12 1.64 2.55 1.64 4.3 0 6.14-3.75 7.51-7.31 7.91.58.5 1.1 1.47 1.1 2.97v4.4c0 .42.29.92 1.1.77C27.42 29.47 32 23.47 32 16.4 32 7.56 24.84.4 16 .4z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/guidevv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32" fill="currentColor" class="icon">
+            <path d="M4 12h5v16H4z"/>
+            <path d="M6.5 2A3.5 3.5 0 1 0 6.5 9a3.5 3.5 0 0 0 0-7z"/>
+            <path d="M14 12h4.8v2.2h.07c.67-1.27 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V28H24V20.6c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.93V28H14z"/>
+          </svg>
+        </a>
+        <a href="mailto:guiduds1324limasilva@gmail.com" aria-label="E-mail">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 75.294 75.294" fill="currentColor" class="icon">
+            <path d="M66.097,12.089h-56.9C4.126,12.089,0,16.215,0,21.286v32.722c0,5.071,4.126,9.197,9.197,9.197h56.9 c5.071,0,9.197-4.126,9.197-9.197V21.287C75.295,16.215,71.169,12.089,66.097,12.089z M61.603,18.089L37.647,33.523L13.691,18.089 H61.603z M66.097,57.206h-56.9C7.434,57.206,6,55.771,6,54.009V21.457l29.796,19.16c0.04,0.025,0.083,0.042,0.124,0.065 c0.043,0.024,0.087,0.047,0.131,0.069c0.231,0.119,0.469,0.215,0.712,0.278c0.025,0.007,0.05,0.01,0.075,0.016 c0.267,0.063,0.537,0.102,0.807,0.102c0.001,0,0.002,0,0.002,0c0.002,0,0.003,0,0.004,0c0.27,0,0.54-0.038,0.807-0.102 c0.025-0.006,0.05-0.009,0.075-0.016c0.243-0.063,0.48-0.159,0.712-0.278c0.044-0.022,0.088-0.045,0.131-0.069 c0.041-0.023,0.084-0.04,0.124-0.065l29.796-19.16v32.551C69.295,55.771,67.86,57.206,66.097,57.206z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span></span></div>
   </header>
 
-  <section id="home" class="header-container">
-    <img class="profile-image" src="imagens/gui.jpeg" alt="" />
-    <h1>Olá, sou Guilherme Silva!</h1>
+  <!-- ── About ───────────────────────────────────────────────── -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" data-i18n="about-title">Sobre mim</h2>
+      </div>
 
-    <div class="content-text">
-      <h2 class="dev">Desenvolvedor</h2>
-      <h2>Back-end</h2>
-    </div>
-    <div class="social-buttons">
-      <a href="https://github.com/guitcodepc" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="icon">
-          <path
-            d="M16 0.39602C7.161 0.39602 0 7.56302 0 16.396C0 23.469 4.584 29.464 10.937 31.579C11.74 31.73 12.03 31.235 12.03 30.807C12.03 30.427 12.021 29.422 12.015 28.088C7.562 29.052 6.624 25.937 6.624 25.937C5.895 24.093 4.843 23.598 4.843 23.598C3.395 22.609 4.958 22.63 4.958 22.63C6.562 22.739 7.406 24.275 7.406 24.275C8.833 26.723 11.15 26.015 12.067 25.603C12.207 24.572 12.624 23.863 13.078 23.468C9.526 23.067 5.791 21.692 5.791 15.561C5.791 13.81 6.411 12.384 7.436 11.264C7.259 10.863 6.717 9.23302 7.577 7.02902C7.577 7.02902 8.916 6.60202 11.977 8.67002C13.258 8.31502 14.618 8.13802 15.977 8.12902C17.337 8.13802 18.696 8.31602 19.977 8.67002C23.02 6.60202 24.358 7.02902 24.358 7.02902C25.217 9.23302 24.675 10.862 24.519 11.264C25.534 12.384 26.154 13.811 26.154 15.561C26.154 21.706 22.414 23.061 18.858 23.452C19.414 23.931 19.935 24.916 19.935 26.411C19.935 28.551 19.915 30.275 19.915 30.796C19.915 31.212 20.195 31.712 21.019 31.551C27.419 29.458 31.998 23.458 31.998 16.395C31.998 7.56202 24.837 0.39502 15.998 0.39502L16 0.39602Z"
-            fill="currentColor" />
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/guilhermesoftware/" target="_blank">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="icon">
-          <path
-            d="M7.216 9.93884H0.992701C0.716501 9.93884 0.492701 10.1627 0.492701 10.4388V30.4316C0.492701 30.7078 0.716501 30.9316 0.992701 30.9316H7.216C7.4922 30.9316 7.716 30.7078 7.716 30.4316V10.4388C7.716 10.1627 7.4922 9.93884 7.216 9.93884Z"
-            fill="currentColor" />
-          <path
-            d="M4.1066 0C1.8422 0 0 1.8402 0 4.1021C0 6.365 1.8422 8.2059 4.1066 8.2059C6.3692 8.2059 8.2099 6.3649 8.2099 4.1021C8.21 1.8402 6.3692 0 4.1066 0Z"
-            fill="currentColor" />
-          <path
-            d="M23.0454 9.44202C20.5459 9.44202 18.6982 10.5165 17.5775 11.7374V10.4389C17.5775 10.1628 17.3537 9.93892 17.0775 9.93892H11.1176C10.8414 9.93892 10.6176 10.1628 10.6176 10.4389V30.4317C10.6176 30.7079 10.8414 30.9317 11.1176 30.9317H17.3273C17.6035 30.9317 17.8273 30.7079 17.8273 30.4317V20.5399C17.8273 17.2066 18.7327 15.908 21.0563 15.908C23.5869 15.908 23.788 17.9898 23.788 20.7114V30.4318C23.788 30.708 24.0118 30.9318 24.288 30.9318H30.5C30.7762 30.9318 31 30.708 31 30.4318V19.4654C31 14.5089 30.0549 9.44202 23.0454 9.44202Z"
-            fill="currentColor" />
-        </svg>
-      </a>
-      <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new">
-        <svg fill="currentColor" height="34px" width="34px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 75.294 75.294" xml:space="preserve"
-          stroke="currentColor" class="icon">
-          <g id="SVGRepo_bgCarrier" stroke-width="0" />
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-          <g id="SVGRepo_iconCarrier">
-            <g>
-              <path
-                d="M66.097,12.089h-56.9C4.126,12.089,0,16.215,0,21.286v32.722c0,5.071,4.126,9.197,9.197,9.197h56.9 c5.071,0,9.197-4.126,9.197-9.197V21.287C75.295,16.215,71.169,12.089,66.097,12.089z M61.603,18.089L37.647,33.523L13.691,18.089 H61.603z M66.097,57.206h-56.9C7.434,57.206,6,55.771,6,54.009V21.457l29.796,19.16c0.04,0.025,0.083,0.042,0.124,0.065 c0.043,0.024,0.087,0.047,0.131,0.069c0.231,0.119,0.469,0.215,0.712,0.278c0.025,0.007,0.05,0.01,0.075,0.016 c0.267,0.063,0.537,0.102,0.807,0.102c0.001,0,0.002,0,0.002,0c0.002,0,0.003,0,0.004,0c0.27,0,0.54-0.038,0.807-0.102 c0.025-0.006,0.05-0.009,0.075-0.016c0.243-0.063,0.48-0.159,0.712-0.278c0.044-0.022,0.088-0.045,0.131-0.069 c0.041-0.023,0.084-0.04,0.124-0.065l29.796-19.16v32.551C69.295,55.771,67.86,57.206,66.097,57.206z" />
-            </g>
-          </g>
-        </svg>
-      </a>
-    </div>
-  </section>
+      <div class="about-container fade-in">
+        <div class="about-photo-wrapper">
+          <img class="about-image" src="imagens/guiii.jpg" alt="Guilherme Silva" loading="lazy" />
+        </div>
+        <div class="about-text">
+          <p class="about-bio" data-i18n="about-bio">Cursando Tecnólogo em Análise e Desenvolvimento de Sistemas (1º/2º semestre) na Universidade Uninove, apaixonado por programação, propósito, educação na área de tecnologia e por transformar ideias em realidade por meio do código.</p>
 
-  <section id="sobre" class="project-container container">
-    <div class="division"></div>
-    <div class="content-text">
-      <h2>Sobre mim</h2>
-    </div>
+          <div class="about-langs">
+            <span class="lang-badge" data-i18n="about-lang-native">🇧🇷 Português Nativo</span>
+            <span class="lang-badge" data-i18n="about-lang-en">🇺🇸 Inglês Avançado</span>
+          </div>
 
-    <div class="about-container">
-      <img class="about-image" src="imagens/guiii.jpg" alt="Guilherme" />
-      <div class="about-text">
+          <p class="about-section-label" data-i18n="about-soft-label">Soft Skills</p>
+          <div class="soft-skills-chips">
+            <span class="soft-chip" data-i18n="soft-1">Comunicação</span>
+            <span class="soft-chip" data-i18n="soft-2">Trabalho em Equipe</span>
+            <span class="soft-chip" data-i18n="soft-3">Pensamento Crítico</span>
+            <span class="soft-chip" data-i18n="soft-4">Adaptabilidade</span>
+            <span class="soft-chip" data-i18n="soft-5">Gestão do Tempo</span>
+            <span class="soft-chip" data-i18n="soft-6">Aprendizado Contínuo</span>
+            <span class="soft-chip" data-i18n="soft-7">Resolução de Problemas</span>
+          </div>
 
-        <p>
-        Cursando Tecnólogo em Análise e Desenvolvimento de Sistemas (1º/2º semestre) na Universidade Uninove, apaixonado por programação, propósito, educação na área de tecnologia e por transformar ideias em realidade por meio do código.
-  
+          <p class="about-section-label" data-i18n="about-aux-label">Habilidades Auxiliares</p>
+          <p class="about-aux" data-i18n="about-aux-text">Fundamentos de Ciência da Computação, Algoritmos e Lógica de Programação.</p>
 
-        <br>
-
-       <br> Português nativo | Inglês Avançado.
-        <br>
-          <br>
-          Soft Skills:
-          <br>
-          • Comunicação<br>
-          • Trabalho em Equipe<br>
-          • Pensamento Crítico<br>
-          • Adaptabilidade<br>
-          • Gestão do tempo e organização<br>
-          • Aprendizado contínuo<br>
-          • Resolução de Problemas<br>
-          <br>Habilidades Auxiliares:<br>
-
-          Fundamentos de Ciência da Computação, Algoritmos e Lógica de Programação.<br>
-          <br>
-        </p>
-
-        <p>
-          Caso queira conhecer mais sobre minha trajetória, você pode baixar meu currículo clicando no botão abaixo.<br>
-        </p>
-        <div class="btn-container">
-          <a href="curriculo/Curriculo.pdf" download class="download-btn">Baixar Curriculo</a>
+          <div class="btn-container">
+            <a href="curriculo/Curriculo.pdf" download class="download-btn" data-i18n="about-cv-btn">Baixar Currículo</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="habilidades" class="skills-container container">
-    <div class="division"></div>
-    <div class="content-text">
-      <h2>Habilidades</h2>
+  <!-- ── Skills ──────────────────────────────────────────────── -->
+  <section id="habilidades" class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" data-i18n="skills-title">Habilidades</h2>
+      </div>
 
+      <div class="skills-grid">
 
-      <div class="skills-category frontend">
-        <h3></h3>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <img src="imagens/js.png" alt="Ícone HTML" class="skill-icon" />
-            <h4>JavaScript</h4>
-            <div class="stars"></div> <!-- Adicionando estrelas -->
-            <p>JavaScript é uma linguagem de programação usada principalmente para tornar páginas web interativas.</p>
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon">
+            <img src="imagens/html-5.png" alt="HTML5" loading="lazy" />
           </div>
-          <div class="skill-item">
-            <img src="imagens/React.png" alt="Ícone CSS" class="skill-icon" />
-            <h4>React</h4>
-            <div class="stars"></div> <!-- Adicionando estrelas -->
-            <p>React é uma biblioteca JavaScript usada para criar interfaces de usuário (UI), especialmente em
-              aplicações web.</p>
-          </div>
-          <div class="skill-item">
-            <img src="imagens/java.png" alt="Ícone JavaScript" class="skill-icon" />
-            <h4>Java</h4>
-            <div class="stars"></div> <!-- Adicionando estrelas -->
-            <p>Java é uma linguagem amplamente usada para desenvolver aplicações web, desktop, mobile e sistemas
-              embarcados.</p>
-          </div>
-
-  </section>
-
-
-  </div>
-  <section id="projects" class="project-container container">
-    <div class="division"></div>
-    <div class="content-text">
-      <h2>Projetos</h2>
-      <p>Confira alguns dos meus projetos pessoais.</p>
-    </div>
-    <article class="project">
-      <!-- Project 1 -->
-      <div href="" class="card">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3>Projeto Doe Sangue Doe Vida.</h3>
-            <p>HTML, CSS, JS, Node.JS, MySQL</p>
-          </div>
-
-          <div class="project-link">
-            <a href=""></a>
-            <a href="https://www.doesanguedoevida.com.br/" target="_blank"><i class="fas fa-globe"></i></a>
-            <a href="https://github.com/guitcodepc" target="_blank"><i class="fab fa-github"></i></a>
-          </div>
+          <h4>HTML5</h4>
+          <span class="skill-level level-adv" data-i18n="level-adv">Avançado</span>
         </div>
-      </div>
-      <!-- Project 2 -->
 
-      <div href="" class="card">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3>Cadastro de Alunos.</h3>
-            <p>HTML, CSS, JavaScript, MySQL, Node.Js</p>
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon">
+            <img src="imagens/css-3.png" alt="CSS3" loading="lazy" />
           </div>
-          <div class="">
-            <a href="https://github.com/guitcodepc" target="_blank"><i class="fab fa-github"></i></a>
-
-            <!-- <a href="#" target="_blank"><i class="fab fa-github"></i></a> -->
-          </div>
+          <h4>CSS3</h4>
+          <span class="skill-level level-adv" data-i18n="level-adv">Avançado</span>
         </div>
-      </div>
-      
 
-      <!-- Project 3 -->
-      <div href="" class="card">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3>Projeto Lista de Tarefas.</h3>
-            <p>HTML, CSS, JavaScript</p>
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon">
+            <img src="imagens/js.png" alt="JavaScript" loading="lazy" />
           </div>
-          <div class="project-link">
-            <a href="" target="_blank">
-            <a href="https://github.com/guitcodepc" target="_blank"><i class="fab fa-github"></i></a>
-          </div>
+          <h4>JavaScript</h4>
+          <span class="skill-level level-int" data-i18n="level-int">Intermediário</span>
         </div>
-      </div>
-      </div>
-      </div>
 
-    </article>
-    <div class="division"></div>
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon">
+            <img src="imagens/React.png" alt="React" loading="lazy" />
+          </div>
+          <h4>React</h4>
+          <span class="skill-level level-adv" data-i18n="level-adv">Avançado</span>
+        </div>
 
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon">
+            <img src="imagens/java.png" alt="Java" loading="lazy" />
+          </div>
+          <h4>Java</h4>
+          <span class="skill-level level-adv" data-i18n="level-adv">Avançado</span>
+        </div>
 
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon skill-card-icon--spring">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#6DB33F" aria-hidden="true">
+              <path d="M20.205 16.392c-2.469 3.289-7.741 2.179-11.122 2.338 0 0-.599.034-1.201.133 0 0 .228-.097.519-.198 2.373-.821 3.496-.986 4.939-1.727 2.71-1.388 5.408-4.413 5.957-7.555-1.032 3.022-4.17 5.623-7.027 6.679-1.955.722-5.492 1.424-5.492 1.424a5.38 5.38 0 0 1-.143-.076c-2.405-1.17-2.475-6.38 1.894-8.059 1.916-.736 3.747-.332 5.818-.825 2.208-.525 4.766-2.18 5.805-4.344 1.165 3.458 2.565 8.866.053 12.21zM20.781 12.61a.549.549 0 0 1-.57-.52.549.549 0 0 1 .52-.57.549.549 0 0 1 .57.52.549.549 0 0 1-.52.57zm0-1.007a.457.457 0 1 0 .01 0z"/>
+            </svg>
+          </div>
+          <h4>Spring Boot</h4>
+          <span class="skill-level level-adv" data-i18n="level-adv">Avançado</span>
+        </div>
+
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon skill-card-icon--go">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#00ADD8" aria-hidden="true">
+              <path d="M1.811 10.231c-.047 0-.058-.023-.035-.059l.246-.315c.023-.035.081-.058.128-.058h4.172c.046 0 .058.035.035.07l-.199.303c-.023.036-.082.07-.117.07zM.047 11.306c-.047 0-.059-.023-.035-.058l.245-.316c.023-.035.082-.058.129-.058h5.328c.047 0 .07.035.058.07l-.093.28c-.012.047-.058.07-.105.07zm2.828 1.075c-.047 0-.059-.035-.035-.07l.163-.292c.023-.035.07-.07.117-.07h2.337c.047 0 .07.035.07.082l-.023.28c0 .047-.047.082-.082.082zm12.129-2.36c-.736.187-1.239.327-1.963.514-.176.046-.187.058-.34-.117-.174-.199-.303-.327-.548-.444-.737-.362-1.45-.257-2.115.175-.795.514-1.204 1.274-1.192 2.22.011.935.654 1.706 1.577 1.846.795.117 1.46-.175 1.974-.77.105-.13.198-.27.315-.434H10.47c-.245 0-.303-.152-.222-.35.152-.362.432-.968.596-1.274a.315.315 0 0 1 .292-.187h4.253c-.023.316-.023.631-.07.947a4.983 4.983 0 0 1-.958 2.29c-.841 1.11-1.94 1.8-3.33 1.986-1.145.152-2.209-.07-3.143-.77-.865-.655-1.356-1.52-1.484-2.595-.152-1.274.222-2.419.993-3.424.83-1.086 1.928-1.776 3.272-2.02 1.098-.2 2.15-.07 3.096.571.62.41 1.063.97 1.356 1.648.07.105.023.164-.117.2zm3.868 6.461c-1.064-.024-2.034-.328-2.852-1.029a3.665 3.665 0 0 1-1.262-2.255c-.21-1.32.152-2.489.947-3.529.853-1.122 1.881-1.706 3.272-1.95 1.192-.21 2.314-.095 3.33.595.923.63 1.496 1.484 1.648 2.605.198 1.578-.257 2.863-1.344 3.962-.771.783-1.718 1.273-2.805 1.495-.315.06-.631.07-.934.106zm2.78-4.72c-.011-.153-.011-.27-.034-.387-.21-1.157-1.274-1.81-2.384-1.554-1.087.245-1.788 1.052-1.895 2.197-.09.973.49 1.94 1.425 2.231.924.28 1.94-.175 2.361-1.075.268-.573.268-.573.527-.573z"/>
+            </svg>
+          </div>
+          <h4>Go</h4>
+          <span class="skill-level level-int" data-i18n="level-int">Intermediário</span>
+        </div>
+
+        <div class="skill-card fade-in">
+          <div class="skill-card-icon skill-card-icon--kotlin">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="kotlinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#7F52FF"/>
+                  <stop offset="100%" style="stop-color:#E44857"/>
+                </linearGradient>
+              </defs>
+              <path fill="url(#kotlinGrad)" d="M2 2h10.752L2 13.656V2zm11.688 0H22v8.344L12.872 22H2L13.688 2zM22 10.328V22H13.72L22 10.328z"/>
+            </svg>
+          </div>
+          <h4>Kotlin</h4>
+          <span class="skill-level level-int" data-i18n="level-int">Intermediário</span>
+        </div>
+
+      </div>
     </div>
   </section>
 
-
-  <section id="contact">
-    <div class="contact-container">
-      <h2>CONTATO</h2>
-      <p>Entre em contato comigo através das opções abaixo:</p>
-      <div class="social-buttons">
-        <a href="https://github.com/guitcodepc" target="_blank">
-          <svg xmlns="" width="32" height="32" fill="currentColor" class="icon">
-            <path
-              d="M16 0.39602C7.161 0.39602 0 7.56302 0 16.396C0 23.469 4.584 29.464 10.937 31.579C11.74 31.73 12.03 31.235 12.03 30.807C12.03 30.427 12.021 29.422 12.015 28.088C7.562 29.052 6.624 25.937 6.624 25.937C5.895 24.093 4.843 23.598 4.843 23.598C3.395 22.609 4.958 22.63 4.958 22.63C6.562 22.739 7.406 24.275 7.406 24.275C8.833 26.723 11.15 26.015 12.067 25.603C12.207 24.572 12.624 23.863 13.078 23.468C9.526 23.067 5.791 21.692 5.791 15.561C5.791 13.81 6.411 12.384 7.436 11.264C7.259 10.863 6.717 9.23302 7.577 7.02902C7.577 7.02902 8.916 6.60202 11.977 8.67002C13.258 8.31502 14.618 8.13802 15.977 8.12902C17.337 8.13802 18.696 8.31602 19.977 8.67002C23.02 6.60202 24.358 7.02902 24.358 7.02902C25.217 9.23302 24.675 10.862 24.519 11.264C25.534 12.384 26.154 13.811 26.154 15.561C26.154 21.706 22.414 23.061 18.858 23.452C19.414 23.931 19.935 24.916 19.935 26.411C19.935 28.551 19.915 30.275 19.915 30.796C19.915 31.212 20.195 31.712 21.019 31.551C27.419 29.458 31.998 23.458 31.998 16.395C31.998 7.56202 24.837 0.39502 15.998 0.39502L16 0.39602Z"
-              fill="currentColor" />
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/guilhermesoftware/" target="_blank">
-          <svg xmlns="" width="32" height="32" fill="currentColor" class="icon">
-            <path
-              d="M7.216 9.93884H0.992701C0.716501 9.93884 0.492701 10.1627 0.492701 10.4388V30.4316C0.492701 30.7078 0.716501 30.9316 0.992701 30.9316H7.216C7.4922 30.9316 7.716 30.7078 7.716 30.4316V10.4388C7.716 10.1627 7.4922 9.93884 7.216 9.93884Z"
-              fill="currentColor" />
-            <path
-              d="M4.1066 0C1.8422 0 0 1.8402 0 4.1021C0 6.365 1.8422 8.2059 4.1066 8.2059C6.3692 8.2059 8.2099 6.3649 8.2099 4.1021C8.21 1.8402 6.3692 0 4.1066 0Z"
-              fill="currentColor" />
-            <path
-              d="M23.0454 9.44202C20.5459 9.44202 18.6982 10.5165 17.5775 11.7374V10.4389C17.5775 10.1628 17.3537 9.93892 17.0775 9.93892H11.1176C10.8414 9.93892 10.6176 10.1628 10.6176 10.4389V30.4317C10.6176 30.7079 10.8414 30.9317 11.1176 30.9317H17.3273C17.6035 30.9317 17.8273 30.7079 17.8273 30.4317V20.5399C17.8273 17.2066 18.7327 15.908 21.0563 15.908C23.5869 15.908 23.788 17.9898 23.788 20.7114V30.4318C23.788 30.708 24.0118 30.9318 24.288 30.9318H30.5C30.7762 30.9318 31 30.708 31 30.4318V19.4654C31 14.5089 30.0549 9.44202 23.0454 9.44202Z"
-              fill="currentColor" />
-          </svg>
-        </a>
+  <!-- ── Projects ────────────────────────────────────────────── -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title" data-i18n="projects-title">Projetos</h2>
+        <p class="section__sub" data-i18n="projects-sub">Confira alguns dos meus projetos mais recentes.</p>
       </div>
 
+      <div class="projects-grid">
 
-      <form action="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new" method="POST" class="contact-form">
-        <label for="name">Nome:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Mensagem:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+        <!-- Project 1 -->
+        <div class="project-card fade-in">
+          <div class="project-card-image">
+            <img src="imagens/Doe Sangue.png" alt="Doe Sangue Doe Vida" loading="lazy" />
+            <div class="project-card-overlay">
+              <div class="project-card-links">
+                <a href="https://www.doesanguedoevida.com.br/" target="_blank" rel="noopener noreferrer" class="project-btn">
+                  <i class="fas fa-globe"></i> <span data-i18n="proj-btn-site">Ver Site</span>
+                </a>
+                <a href="https://github.com/guidevcode" target="_blank" rel="noopener noreferrer" class="project-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3 data-i18n="proj1-title">Doe Sangue Doe Vida</h3>
+            <p data-i18n="proj1-desc">Plataforma web para conectar doadores de sangue a hemocentros, contribuindo com vidas e conscientizando sobre a importância da doação.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+        </div>
 
-        <input type="hidden" name="_subject" value="">
-        <input type="text" name="_honey" style="display:none">
-        <input type="hidden" name="_captcha" value="false">
-        <button type="submit" class="submit-btn">Enviar</button>
-      </form>
+        <!-- Project 2 -->
+        <div class="project-card fade-in">
+          <div class="project-card-image">
+            <img src="imagens/Ficha Cadastral 2.png" alt="Sistema de Gestão Escolar" loading="lazy" />
+            <div class="project-card-overlay">
+              <div class="project-card-links">
+                <a href="https://github.com/guidevcode" target="_blank" rel="noopener noreferrer" class="project-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3 data-i18n="proj2-title">Sistema de Gestão Escolar</h3>
+            <p data-i18n="proj2-desc">Aplicação para cadastro e gerenciamento de alunos com operações completas de CRUD integradas a banco de dados relacional.</p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MySQL</span>
+            </div>
+          </div>
+        </div>
 
+        <!-- Project 3 -->
+        <div class="project-card fade-in">
+          <div class="project-card-image project-card-image--navy">
+            <div class="project-gradient-content">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="rgba(255,255,255,0.85)" aria-hidden="true">
+                <path d="M20 6h-2.18c.07-.24.18-.47.18-.73C18 3.91 16.83 3 15.5 3c-.98 0-1.6.5-2.1 1.12L12 5.73l-1.4-1.61C10.1 3.5 9.48 3 8.5 3 7.17 3 6 3.91 6 5.27c0 .26.11.49.18.73H4C2.9 6 2 6.9 2 8v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-5.5-1.5c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zm-5 0c.28 0 .5.22.5.5s-.22.5-.5.5-.5-.22-.5-.5.22-.5.5-.5zM20 20H4V8l16-.01V20z"/>
+                <path d="M8 10h8v2H8zm0 4h5v2H8z"/>
+              </svg>
+              <span class="project-gradient-label">REST API / CRUD</span>
+            </div>
+            <div class="project-card-overlay">
+              <div class="project-card-links">
+                <a href="https://github.com/guidevcode" target="_blank" rel="noopener noreferrer" class="project-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3 data-i18n="proj3-title">API REST — Gestão de Clientes</h3>
+            <p data-i18n="proj3-desc">API RESTful para gerenciamento de clientes com operações CRUD completas, validação de dados, paginação e documentação automática via Swagger/OpenAPI.</p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">JPA</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Swagger</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 - CRM Microservices -->
+        <div class="project-card fade-in">
+          <div class="project-card-image project-card-image--gradient">
+            <div class="project-gradient-content">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="rgba(255,255,255,0.85)" aria-hidden="true">
+                <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+              </svg>
+              <span class="project-gradient-label">Microservices</span>
+            </div>
+            <div class="project-card-overlay">
+              <div class="project-card-links">
+                <a href="https://github.com/guidevcode" target="_blank" rel="noopener noreferrer" class="project-btn">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card-body">
+            <h3 data-i18n="proj4-title">CRM Microservices</h3>
+            <p data-i18n="proj4-desc">Sistema CRM completo com arquitetura de microsserviços, autenticação JWT, comunicação assíncrona via Kafka e orquestração com Docker.</p>
+            <div class="project-tags">
+              <span class="tag">APIs REST</span>
+              <span class="tag">JWT</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">Gateway</span>
+              <span class="tag">Spring Boot</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
+  <!-- ── Contact ─────────────────────────────────────────────── -->
+  <section id="contact" class="section section--alt">
+    <div class="container">
+      <div class="contact-container fade-in">
+        <h2 data-i18n="contact-title">CONTATO:</h2>
+        <p data-i18n="contact-sub">Entre em contato comigo através das opções abaixo:</p>
+        <div class="social-buttons">
+          <a href="https://github.com/guidevcode" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" class="icon">
+              <path d="M16 0.4C7.16 0.4 0 7.56 0 16.4c0 7.07 4.58 13.07 10.94 15.18.8.15 1.09-.35 1.09-.77v-2.7c-4.45.96-5.39-2.15-5.39-2.15-.73-1.84-1.78-2.33-1.78-2.33-1.45-.99.11-.97.11-.97 1.6.11 2.44 1.64 2.44 1.64 1.43 2.45 3.74 1.74 4.66 1.33.14-1.03.56-1.74 1.01-2.14-3.55-.4-7.29-1.78-7.29-7.91 0-1.75.62-3.18 1.64-4.3-.16-.4-.71-2.03.16-4.23 0 0 1.34-.43 4.4 1.64a15.2 15.2 0 0 1 8 0c3.06-2.07 4.4-1.64 4.4-1.64.87 2.2.32 3.83.16 4.23 1.02 1.12 1.64 2.55 1.64 4.3 0 6.14-3.75 7.51-7.31 7.91.58.5 1.1 1.47 1.1 2.97v4.4c0 .42.29.92 1.1.77C27.42 29.47 32 23.47 32 16.4 32 7.56 24.84.4 16 .4z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/guidevv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" class="icon">
+              <path d="M4 12h5v16H4z"/>
+              <path d="M6.5 2A3.5 3.5 0 1 0 6.5 9a3.5 3.5 0 0 0 0-7z"/>
+              <path d="M14 12h4.8v2.2h.07c.67-1.27 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V28H24V20.6c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.93V28H14z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" class="icon">
+              <path d="M12.04 2C6.58 2 2.14 6.29 2.14 11.58c0 1.87.52 3.61 1.42 5.12L2 22l5.46-1.49a10.14 10.14 0 0 0 4.58 1.11h.01c5.46 0 9.9-4.29 9.9-9.58C21.95 6.29 17.5 2 12.04 2zm0 17.92a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.24.88.87-3.07-.2-.31a8.13 8.13 0 1 1 7.07 3.83zm4.73-6.09c-.26-.13-1.53-.75-1.77-.83-.24-.09-.41-.13-.59.13-.18.26-.68.83-.83 1-.15.18-.3.2-.56.07-.26-.13-1.08-.4-2.06-1.27-.76-.68-1.27-1.51-1.42-1.77-.15-.26-.01-.39.11-.52.12-.12.26-.3.39-.45.13-.15.18-.26.26-.43.08-.17.05-.32-.02-.45-.07-.13-.59-1.42-.8-1.95-.21-.52-.42-.45-.59-.46h-.5c-.17 0-.45.07-.69.33-.23.26-.9.9-.9 2.19s.93 2.53 1.06 2.71c.13.18 1.82 2.81 4.4 3.94.62.27 1.1.42 1.47.54.62.2 1.18.17 1.62.11.5-.08 1.53-.63 1.74-1.24.22-.61.22-1.13.15-1.24-.07-.11-.24-.18-.5-.31z"/>
+            </svg>
+            WhatsApp
+          </a>
+          <a href="mailto:guiduds1324limasilva@gmail.com" aria-label="E-mail">
+            <svg width="20" height="20" viewBox="0 0 75.294 75.294" fill="currentColor" class="icon">
+              <path d="M66.097,12.089h-56.9C4.126,12.089,0,16.215,0,21.286v32.722c0,5.071,4.126,9.197,9.197,9.197h56.9 c5.071,0,9.197-4.126,9.197-9.197V21.287C75.295,16.215,71.169,12.089,66.097,12.089z M61.603,18.089L37.647,33.523L13.691,18.089 H61.603z M66.097,57.206h-56.9C7.434,57.206,6,55.771,6,54.009V21.457l29.796,19.16c0.04,0.025,0.083,0.042,0.124,0.065 c0.043,0.024,0.087,0.047,0.131,0.069c0.231,0.119,0.469,0.215,0.712,0.278c0.025,0.007,0.05,0.01,0.075,0.016 c0.267,0.063,0.537,0.102,0.807,0.102c0.001,0,0.002,0,0.002,0c0.002,0,0.003,0,0.004,0c0.27,0,0.54-0.038,0.807-0.102 c0.025-0.006,0.05-0.009,0.075-0.016c0.243-0.063,0.48-0.159,0.712-0.278c0.044-0.022,0.088-0.045,0.131-0.069 c0.041-0.023,0.084-0.04,0.124-0.065l29.796-19.16v32.551C69.295,55.771,67.86,57.206,66.097,57.206z"/>
+            </svg>
+            E-mail
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
   <footer id="footer">
     <div class="container">
-      <p class="footer-title">Entre em Contato</p>
-      <div class="social">
-        <a href="https://github.com/guitcodepc" target="_blank">
-          <img src="imagens/github (10).png" alt="GitHub" />
-        </a>
-        <a href="https://www.linkedin.com/in/guilhermesoftware/" target="_blank">
-          <img src="imagens/linkedin.png" alt="Linkedin" />
-        </a>
-         <a href="https://w.app/xuy0tz" target="_blank">
-          <img src="imagens/wpp.png" alt="Linkedin" />
-        </a>
+      <div class="footer__inner fade-in">
+        <div class="footer__brand">
+          <span class="logo-text">&lt;GS /&gt;</span>
+        </div>
+        <p class="footer__copy">
+          &copy; <span id="datee"></span> Guilherme Silva
+        </p>
+        <div class="footer__social">
+          <a href="https://github.com/guidevcode" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor">
+              <path d="M16 0.4C7.16 0.4 0 7.56 0 16.4c0 7.07 4.58 13.07 10.94 15.18.8.15 1.09-.35 1.09-.77v-2.7c-4.45.96-5.39-2.15-5.39-2.15-.73-1.84-1.78-2.33-1.78-2.33-1.45-.99.11-.97.11-.97 1.6.11 2.44 1.64 2.44 1.64 1.43 2.45 3.74 1.74 4.66 1.33.14-1.03.56-1.74 1.01-2.14-3.55-.4-7.29-1.78-7.29-7.91 0-1.75.62-3.18 1.64-4.3-.16-.4-.71-2.03.16-4.23 0 0 1.34-.43 4.4 1.64a15.2 15.2 0 0 1 8 0c3.06-2.07 4.4-1.64 4.4-1.64.87 2.2.32 3.83.16 4.23 1.02 1.12 1.64 2.55 1.64 4.3 0 6.14-3.75 7.51-7.31 7.91.58.5 1.1 1.47 1.1 2.97v4.4c0 .42.29.92 1.1.77C27.42 29.47 32 23.47 32 16.4 32 7.56 24.84.4 16 .4z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/guidevv/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor">
+              <path d="M4 12h5v16H4z"/>
+              <path d="M6.5 2A3.5 3.5 0 1 0 6.5 9a3.5 3.5 0 0 0 0-7z"/>
+              <path d="M14 12h4.8v2.2h.07c.67-1.27 2.3-2.6 4.73-2.6 5.06 0 6 3.33 6 7.66V28H24V20.6c0-1.77-.03-4.05-2.47-4.05-2.47 0-2.85 1.93-2.85 3.93V28H14z"/>
+            </svg>
+          </a>
+        </div>
       </div>
-      <p>Copyright &copy; <span id="datee"></span> Guilherme Silva, Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <script>
-    const form = document.querySelector(".contact-form");
-    form.addEventListener("submit", function (e) {
-      const name = document.getElementById("name").value;
-      const subjectField = document.createElement("input");
-      subjectField.type = "hidden";
-      subjectField.name = "_subject";
-      subjectField.value = `[PORTFOLIO] Nova mensagem - ${name}`;
-      form.appendChild(subjectField);
-    });
-  </script>
   <script src="js/script.js"></script>
 </body>
 
